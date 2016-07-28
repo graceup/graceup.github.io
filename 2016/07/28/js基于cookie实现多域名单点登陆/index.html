@@ -84,12 +84,19 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="graceup">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="本demo使用jQuery，也可以去掉（需要改写里面用的jQuery的方法）。demo github地址：https://github.com/graceup/gu_js_lib/tree/master/js基于cookie实现多域名单点登陆
+cookie util123456789101112131415161718192021222324252627282930313233//写cookies">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js基于cookie实现多域名单点登陆">
+<meta property="og:url" content="http://yoursite.com/2016/07/28/js基于cookie实现多域名单点登陆/index.html">
 <meta property="og:site_name" content="graceup">
+<meta property="og:description" content="本demo使用jQuery，也可以去掉（需要改写里面用的jQuery的方法）。demo github地址：https://github.com/graceup/gu_js_lib/tree/master/js基于cookie实现多域名单点登陆
+cookie util123456789101112131415161718192021222324252627282930313233//写cookies">
+<meta property="og:updated_time" content="2016-07-28T06:40:54.654Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="graceup">
+<meta name="twitter:title" content="js基于cookie实现多域名单点登陆">
+<meta name="twitter:description" content="本demo使用jQuery，也可以去掉（需要改写里面用的jQuery的方法）。demo github地址：https://github.com/graceup/gu_js_lib/tree/master/js基于cookie实现多域名单点登陆
+cookie util123456789101112131415161718192021222324252627282930313233//写cookies">
 
 
 
@@ -110,9 +117,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/07/28/js基于cookie实现多域名单点登陆/"/>
 
-  <title> graceup </title>
+  <title> js基于cookie实现多域名单点登陆 | graceup </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -133,9 +140,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -202,9 +207,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -224,10 +229,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/07/28/js基于cookie实现多域名单点登陆/" itemprop="url">
-                  js基于cookie实现多域名单点登陆
-                </a>
+                js基于cookie实现多域名单点登陆
               
             
           </h1>
@@ -274,25 +276,27 @@
       
 
       
-        
-          
-            <p>本demo使用jQuery，也可以去掉（需要改写里面用的jQuery的方法）。<br>demo github地址：<a href="https://github.com/graceup/gu_js_lib/tree/master/js%E5%9F%BA%E4%BA%8Ecookie%E5%AE%9E%E7%8E%B0%E5%A4%9A%E5%9F%9F%E5%90%8D%E5%8D%95%E7%82%B9%E7%99%BB%E9%99%86" target="_blank" rel="external">https://github.com/graceup/gu_js_lib/tree/master/js基于cookie实现多域名单点登陆</a></p>
+        <p>本demo使用jQuery，也可以去掉（需要改写里面用的jQuery的方法）。<br>demo github地址：<a href="https://github.com/graceup/gu_js_lib/tree/master/js%E5%9F%BA%E4%BA%8Ecookie%E5%AE%9E%E7%8E%B0%E5%A4%9A%E5%9F%9F%E5%90%8D%E5%8D%95%E7%82%B9%E7%99%BB%E9%99%86" target="_blank" rel="external">https://github.com/graceup/gu_js_lib/tree/master/js基于cookie实现多域名单点登陆</a></p>
 <h1 id="cookie-util"><a href="#cookie-util" class="headerlink" title="cookie util"></a>cookie util</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">//写cookies</div><div class="line">function setCookie(name,value,days)//两个参数，一个是cookie的名子，一个是值</div><div class="line">&#123;</div><div class="line">    var exp  = new Date();    </div><div class="line">    exp.setTime(exp.getTime() + days*24*60*60*1000);</div><div class="line">    document.cookie = name + &quot;=&quot;+ escape (value) + &quot;;path=/;expires=&quot; + exp.toGMTString();</div><div class="line">   </div><div class="line">&#125;</div><div class="line">function setCookie(name,value)//两个参数，一个是cookie的名子，一个是值</div><div class="line">&#123;</div><div class="line">	var exp  = new Date();    </div><div class="line">	exp.setTime(exp.getTime() + 15*24*60*60*1000);</div><div class="line">	document.cookie = name + &quot;=&quot;+ escape (value) + &quot;;path=/;expires=&quot; + exp.toGMTString();</div><div class="line">	</div><div class="line">&#125;</div><div class="line">function getCookie(name)//取cookies函数        </div><div class="line">&#123;</div><div class="line">    var arr = document.cookie.match(new RegExp(&quot;(^| )&quot;+name+&quot;=([^;]*)(;|$)&quot;));</div><div class="line">     if(arr != null) &#123;</div><div class="line">    	 return unescape(arr[2]);</div><div class="line">     &#125;else&#123;</div><div class="line">    	  return null;</div><div class="line">     &#125;   	 </div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">function delCookie(name)//删除cookie</div><div class="line">&#123;	</div><div class="line">    var exp = new Date();</div><div class="line">    exp.setTime(exp.getTime() - 1);</div><div class="line">    var cval=getCookie(name);</div><div class="line">    if(cval!=null) document.cookie= name + &quot;=&quot;+cval+&quot;;path=/;expires=&quot;+exp.toGMTString();    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h1 id="登录操作"><a href="#登录操作" class="headerlink" title="登录操作"></a>登录操作</h1><p>登录页面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;</div><div class="line">&lt;title&gt;login&lt;/title&gt; </div><div class="line">&lt;meta name=&quot;author&quot; content=&quot;lyn&quot;&gt;</div><div class="line"></div><div class="line">&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;</div><div class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line"> &lt;input id=&quot;username&quot;&gt;&lt;br&gt;</div><div class="line"> &lt;input id=&quot;password&quot;&gt;&lt;br&gt;</div><div class="line">&lt;button id=&quot;login&quot;&gt;login&lt;/button&gt;</div><div class="line"></div><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;js/jquery.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;util-cookie.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;login.js&quot;&gt;&lt;/script&gt;</div><div class="line"> </div><div class="line">	</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
 <p>登录js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div></pre></td><td class="code"><pre><div class="line">$(function() &#123;</div><div class="line">	var ssoToken=getCookie(&quot;ssoToken&quot;);</div><div class="line">	if(ssoToken==null)&#123;</div><div class="line">		ssoToken=getQueryString(&quot;ssoToken&quot;);</div><div class="line">	&#125;</div><div class="line">	if(ssoToken==null)&#123;</div><div class="line">		initNormalLogin();</div><div class="line">	&#125;else&#123;</div><div class="line">		loginBySso(ssoToken);</div><div class="line">	&#125;</div><div class="line"> </div><div class="line">&#125;);</div><div class="line"></div><div class="line">/**</div><div class="line"> * 获取url中的的参数</div><div class="line"> */</div><div class="line">function getQueryString(name) &#123;</div><div class="line">		    var reg = new RegExp(&quot;(^|&amp;)&quot;+ name +&quot;=([^&amp;]*)(&amp;|$)&quot;);</div><div class="line">		    var r = window.location.search.substr(1).match(reg);</div><div class="line">		    if(r!=null) &#123;</div><div class="line">		    	return  unescape(r[2]); </div><div class="line">		    &#125;</div><div class="line">		   	return null;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 单点登录</div><div class="line"> */</div><div class="line">function loginBySso(ssoToken)&#123;</div><div class="line">	</div><div class="line">	var parms = &#123;</div><div class="line">			&quot;ssoToken&quot; : ssoToken</div><div class="line">		&#125;;</div><div class="line">		</div><div class="line">		var url = &quot;/user/loginbysso&quot;;</div><div class="line">		$.post(url, parms, function(data) &#123;</div><div class="line">			if (data) &#123;</div><div class="line">				var result = JSON.parse(data);</div><div class="line">				if (result.code == &quot;1&quot;) &#123;</div><div class="line">					dumpIn();</div><div class="line">				&#125; else &#123;</div><div class="line">					initNormalLogin();</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;);</div><div class="line">	</div><div class="line">&#125;</div><div class="line">/**</div><div class="line"> * 正常登录</div><div class="line"> */</div><div class="line">function initNormalLogin()&#123;</div><div class="line">	</div><div class="line">	$(&apos;#login&apos;).click(function()&#123;</div><div class="line">		doLogin();</div><div class="line">	&#125;);</div><div class="line">	 </div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">/**</div><div class="line"> * 初始化其它站点单点</div><div class="line"> */</div><div class="line">function initSsoSite(tempSsoToken)&#123;</div><div class="line"></div><div class="line">	var  ssoIframeIndex=0;</div><div class="line">	//单点登录的域名</div><div class="line">	var  ssoIframeSrcArray=(&apos;https://a.com/sso.html?oper=in&amp;ssoToken=&apos;+</div><div class="line">							&apos;##&apos;+</div><div class="line">							&apos;http://b.com/sso.html?oper=in&amp;ssoToken=&apos;).split(&apos;##&apos;);</div><div class="line">	</div><div class="line">	var tempIframeHtml=&apos;&lt;iframe style=&quot;display: none;&quot; id=&quot;ssoIframe&quot; &gt;&lt;/iframe&gt;&apos;;</div><div class="line">	$(document.body).append(tempIframeHtml);</div><div class="line">	</div><div class="line">	var ssoIframe = document.getElementById(&apos;ssoIframe&apos;);</div><div class="line">	ssoIframe.src=ssoIframeSrcArray[ssoIframeIndex]+tempSsoToken;</div><div class="line">	ssoIframeIndex++;</div><div class="line">	ssoIframe.onload = ssoIframe.onreadystatechange = function() &#123;</div><div class="line">	    if (this.readyState &amp;&amp; this.readyState != &apos;complete&apos;)&#123;</div><div class="line">	    	return;</div><div class="line">	    &#125;else &#123;</div><div class="line">	    	if(ssoIframeIndex&lt;ssoIframeSrcArray.length)&#123;</div><div class="line">	    		ssoIframe.src=ssoIframeSrcArray[ssoIframeIndex]+tempSsoToken;</div><div class="line">	    		ssoIframeIndex++;</div><div class="line">	    	&#125;else&#123;</div><div class="line">			    dumpIn();</div><div class="line">	    		</div><div class="line">	    	&#125;</div><div class="line">	      &#125;</div><div class="line">	&#125;;</div><div class="line">	</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">/**</div><div class="line"> * 提交登录请求</div><div class="line"> */</div><div class="line">function doLogin() &#123;</div><div class="line">	</div><div class="line">	var parms = &#123;</div><div class="line">		&quot;username&quot; : $(&apos;#username&apos;).val(),</div><div class="line">		&quot;password&quot; : $(&apos;#password&apos;).val()</div><div class="line">	&#125;;</div><div class="line">	</div><div class="line">	var url = &quot;/user/login&quot;;</div><div class="line">	$.post(url, parms, function(data) &#123;</div><div class="line">		if (data) &#123;</div><div class="line">			var result = JSON.parse(data);</div><div class="line">			if (result.code == &quot;1&quot;) &#123;</div><div class="line">				</div><div class="line">				var tempSsoToken=result.ssoToken;</div><div class="line">				</div><div class="line">				setCookie(&quot;ssoToken&quot;,tempSsoToken,0.08);</div><div class="line">				</div><div class="line">				//5秒后跳转</div><div class="line">				setTimeout(&apos;dumpIn()&apos;,5000);</div><div class="line">				</div><div class="line">				initSsoSite(tempSsoToken);</div><div class="line">				</div><div class="line">			&#125; else &#123; </div><div class="line">				//登录不成功</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;);</div><div class="line">&#125;</div><div class="line"> </div><div class="line">/**</div><div class="line"> * 跳转</div><div class="line"> */</div><div class="line">function dumpIn() &#123;</div><div class="line">	window.location = &quot;/index.html&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h1 id="登出操作"><a href="#登出操作" class="headerlink" title="登出操作"></a>登出操作</h1><p>登出页面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;</div><div class="line">&lt;title&gt;logout&lt;/title&gt; </div><div class="line">&lt;meta name=&quot;author&quot; content=&quot;lyn&quot;&gt;</div><div class="line"></div><div class="line">&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;</div><div class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line"> </div><div class="line"> &lt;button id=&quot;logout&quot;&gt;logout&lt;/button&gt;</div><div class="line"></div><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;js/jquery.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;util-cookie.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;logout.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line"></div><div class="line">$(function() &#123;</div><div class="line">	</div><div class="line">	$(&apos;#logout&apos;).click(function()&#123;</div><div class="line">		logout();</div><div class="line">	&#125;);</div><div class="line">	</div><div class="line">&#125;);</div><div class="line"></div><div class="line">&lt;/script&gt;</div><div class="line">	</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
 <p>登出js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 登出</div><div class="line"> */</div><div class="line">function logout() &#123;</div><div class="line">			var url = &quot;/user/logout&quot;;</div><div class="line">			$.post(url, null, function(data) &#123;</div><div class="line">				delCookie(&quot;ssoToken&quot;);</div><div class="line">				// 调到登录页面</div><div class="line">				setTimeout(&apos;dumpOut()&apos;,5000);</div><div class="line">				deleteSsoSite();</div><div class="line">			&#125;);</div><div class="line">&#125; </div><div class="line"></div><div class="line"></div><div class="line">/**</div><div class="line"> * 删除其它站点单点</div><div class="line"> */</div><div class="line">function deleteSsoSite()&#123;</div><div class="line">	var  ssoIframeIndex=0;</div><div class="line">	var  ssoIframeSrcArray=(&apos;https://a.com/sso.html?oper=leave&apos;+</div><div class="line">							&apos;##&apos;+</div><div class="line">							&apos;http://b.com/sso.html?oper=leave&apos;).split(&apos;##&apos;);</div><div class="line">	</div><div class="line">	var tempIframeHtml=&apos;&lt;iframe style=&quot;display: none;&quot; id=&quot;ssoIframe&quot; &gt;&lt;/iframe&gt;&apos;;</div><div class="line">	$(document.body).append(tempIframeHtml);</div><div class="line">	</div><div class="line">	var ssoIframe = document.getElementById(&apos;ssoIframe&apos;);</div><div class="line">	ssoIframe.src=ssoIframeSrcArray[ssoIframeIndex];</div><div class="line">	ssoIframeIndex++;</div><div class="line">	ssoIframe.onload = ssoIframe.onreadystatechange = function() &#123;</div><div class="line">	    if (this.readyState &amp;&amp; this.readyState != &apos;complete&apos;)&#123;</div><div class="line">	    	return;</div><div class="line">	    &#125;else &#123;</div><div class="line">	    	if(ssoIframeIndex&lt;ssoIframeSrcArray.length)&#123;</div><div class="line">	    		ssoIframe.src=ssoIframeSrcArray[ssoIframeIndex];</div><div class="line">	    		ssoIframeIndex++;</div><div class="line">	    	&#125;else&#123;</div><div class="line">	    		dumpOut();</div><div class="line">	    	&#125;</div><div class="line">	      &#125;</div><div class="line">	&#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 跳转</div><div class="line"> */</div><div class="line">function dumpOut()&#123;</div><div class="line">	window.location = &quot;/login.html&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h1 id="其它域名下的sso-html"><a href="#其它域名下的sso-html" class="headerlink" title="其它域名下的sso.html"></a>其它域名下的sso.html</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;</div><div class="line">&lt;title&gt;grace-up&lt;/title&gt; </div><div class="line">&lt;meta name=&quot;author&quot; content=&quot;lyn&quot;&gt;</div><div class="line"></div><div class="line">&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;</div><div class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</div><div class="line"></div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line"></div><div class="line"></div><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;js/jquery.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;util-cookie.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">/**</div><div class="line"> * 获取url中的的参数</div><div class="line"> */		</div><div class="line">function getQueryString(name) &#123;</div><div class="line">		    var reg = new RegExp(&quot;(^|&amp;)&quot;+ name +&quot;=([^&amp;]*)(&amp;|$)&quot;);</div><div class="line">		    var r = window.location.search.substr(1).match(reg);</div><div class="line">		    if(r!=null) &#123;</div><div class="line">		    	return  unescape(r[2]); </div><div class="line">		    &#125;</div><div class="line">		   	return null;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var oper=getQueryString(&apos;oper&apos;);</div><div class="line">if(oper==&apos;leave&apos;)&#123;</div><div class="line">	delCookie(&quot;ssoToken&quot;);</div><div class="line">&#125;else if(oper==&apos;in&apos;)&#123;</div><div class="line">	var ssoToken=getQueryString(&quot;ssoToken&quot;);</div><div class="line">	setCookie(&quot;ssoToken&quot;,ssoToken);</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
@@ -300,123 +304,32 @@
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/07/27/html页面异步加载js文件/" rel="next" title="html页面异步加载js文件">
+                <i class="fa fa-chevron-left"></i> html页面异步加载js文件
+              </a>
             
-              
-                
-                <a class="post-title-link" href="/2016/07/27/html页面异步加载js文件/" itemprop="url">
-                  html页面异步加载js文件
-                </a>
-              
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-27T00:00:00+08:00" content="2016-07-27">
-              2016-07-27
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/27/html页面异步加载js文件/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/27/html页面异步加载js文件/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>一般直接引入第三方的js，如果第三方速度比较慢，会阻塞页面的渲染，用户等待的时候，会看到一片的空白，这样的用户体验不太好。因此一些不用马上运行的js，可以用异步进行加载。</p>
-<p>加载方法有两种，如下</p>
-<h1 id="script-中加入-async-”async”"><a href="#script-中加入-async-”async”" class="headerlink" title="script 中加入 async=”async”"></a>script 中加入 async=”async”</h1><p>async 是html5的新属性，低版本的浏览器不兼容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot; async=&quot;async&quot; src=&quot;http://thirdpart/js.js&quot; &gt;&lt;/script&gt;</div></pre></td></tr></table></figure></p>
-<h1 id="用js方法异步加载"><a href="#用js方法异步加载" class="headerlink" title="用js方法异步加载"></a>用js方法异步加载</h1><p>这种方法是监听页面加载完之后，在页面中加入script，从而达到引入js文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">(function() &#123;</div><div class="line">   function asyncLoad() &#123;</div><div class="line">     var src = &quot;http://thirdpart/js.js&quot;;</div><div class="line">     var urls = src.split(&quot;,&quot;);</div><div class="line">     var x = document.getElementsByTagName(&apos;body&apos;);</div><div class="line">     if(x &amp;&amp; x[0])&#123;</div><div class="line">       for (var i = 0; i &lt; urls.length; i++) &#123;</div><div class="line">         var s = document.createElement(&apos;script&apos;);</div><div class="line">         s.type = &apos;text/javascript&apos;;</div><div class="line">         s.async = true;</div><div class="line">         s.src = urls[i];</div><div class="line">         x[0].appendChild(s);</div><div class="line">       &#125;</div><div class="line">     &#125;</div><div class="line">   &#125;</div><div class="line">   window.attachEvent ? window.attachEvent(&apos;onload&apos;, asyncLoad) :           </div><div class="line">window.addEventListener(&apos;load&apos;, asyncLoad, false);</div><div class="line"> &#125;)();</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -424,6 +337,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/07/28/js基于cookie实现多域名单点登陆/"
+           data-title="js基于cookie实现多域名单点登陆" data-url="http://yoursite.com/2016/07/28/js基于cookie实现多域名单点登陆/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -443,8 +364,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -480,6 +410,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#cookie-util"><span class="nav-number">1.</span> <span class="nav-text">cookie util</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#登录操作"><span class="nav-number">2.</span> <span class="nav-text">登录操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#登出操作"><span class="nav-number">3.</span> <span class="nav-text">登出操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其它域名下的sso-html"><span class="nav-number">4.</span> <span class="nav-text">其它域名下的sso.html</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -578,6 +519,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
